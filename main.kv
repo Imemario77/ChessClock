@@ -1,0 +1,109 @@
+<CustomColor>
+    custom: '#282b29'
+
+<TimeBox>:
+	id: time_box
+	MDBoxLayout:
+		orientation: 'vertical'
+		md_bg_color : '#282b29'
+		padding: (40,60,40,30)
+		spacing: dp(8)
+		PlayerTime:
+			id : start_player_1
+			md_bg_color: '#524e44'
+			orientation: 'vertical'
+			size_hint_y: None
+			height: 400
+			on_release: app.start_count('player_1_start')
+			MDBoxLayout:
+				orientation: 'vertical'
+				spacing: 0
+				padding: (30,-50,30,100)
+				MDLabel:
+					canvas.before:
+						PushMatrix
+						Rotate:
+							angle: 180
+							origin: self.center
+					canvas.after:
+						PopMatrix
+					id: player1_moves
+					text: 'Moves:  ' + str(app.player_2_moves_count) 
+					halign: 'right'
+			
+				MDLabel:
+					canvas.before:
+						PushMatrix
+						Rotate:
+							angle: 180
+							origin: self.center
+					canvas.after:
+						PopMatrix
+					id: player1
+					text: app.Game_Time
+					font_style: 'H2'
+					halign: 'center'
+					
+		
+		CenterMenu:
+			padding: (30,0,30,0)
+			AnchorLayout:
+				anchor_y: 'center'
+				anchor_x: 'left'
+				MDFloatingActionButton:
+					id: add_more_time
+					icon: 'clock-plus'
+					on_release:
+						app.add_time()
+					
+					
+      		
+			AnchorLayout:
+				anchor_y: 'center'
+				anchor_x: 'center'
+				MDFloatingActionButton:
+					id: pause_game
+					opacity: 0
+					disabled: True
+					icon: 'pause'
+					on_release: app.pause_time()
+					
+					
+			AnchorLayout:
+				anchor_y: 'center'
+				anchor_x: 'right'
+				MDFloatingActionButton:
+					icon: 'restart'
+					
+					on_release:
+						app.restart_time()
+						
+						
+						
+						
+		PlayerTime:
+			id : start_player_2
+			md_bg_color: '#524e44'
+			orientation: 'vertical'
+			size_hint_y: None
+			height: 400
+			on_release: app.start_count('player_2_start')
+			MDBoxLayout:
+				orientation: 'vertical'
+				spacing: 0
+				padding: (30,100,30,-50)
+				MDLabel:
+					id: player2
+					text: app.Game_Time
+					font_style: 'H2'
+					halign: 'center'
+					
+				MDLabel:
+					id: player2_moves
+					text: 'Moves:  ' + str(app.player_2_moves_count)
+					halign: 'right'
+			
+		
+			
+			
+		
