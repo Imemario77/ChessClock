@@ -59,7 +59,7 @@ orientation = portrait
 #
 # OSX Specific
 #
-
+osx.python_version = 3
 #
 # author = © Copyright Info
 
